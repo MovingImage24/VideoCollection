@@ -1,0 +1,14 @@
+{
+    "name": "movingimage/video-collection",
+    "description": "Library to facilitate building video collections from video manager APIs through means of configuration",
+    "type": "library",
+    "license": "Proprietary",
+    "authors": [
+        {
+            "name": "Ruben Knol",
+            "email": "ruben.knol@movingimage.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
