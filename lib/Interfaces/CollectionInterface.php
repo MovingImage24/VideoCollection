@@ -45,4 +45,11 @@ interface CollectionInterface
      * @return \Generator
      */
     public function generator();
+
+    /**
+     * Get the videos count based on all options provided.
+     *
+     * @return int
+     */
+    public function getCount();
 }

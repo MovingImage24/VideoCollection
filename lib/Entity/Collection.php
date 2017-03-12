@@ -81,12 +81,20 @@ class Collection implements CollectionInterface
     }
 
     /**
-     * @return \Generator
+     * {@inheritdoc}
      */
     public function generator()
     {
         foreach ($this->dataProvider->getData($this->getOptions()) as $item) {
             yield $item;
         }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCount()
+    {
+        return $this->dataProvider->getCount($this->getOptions());
     }
 }
