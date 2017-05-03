@@ -21,11 +21,15 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "movingimage/data-provider": "dev-master"
+        "movingimage/data-provider": "dev-PS-651",
+        "movingimage/video-manager-meta": "^1.2"
     },
     "autoload": {
         "psr-4": {
             "MovingImage\\VideoCollection\\": "lib/"
         }
+    },
+    "require-dev": {
+        "movingimage/style-checker": "dev-master"
     }
 }

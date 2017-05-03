@@ -1,4 +1,5 @@
 <?php
+
 namespace MovingImage\VideoCollection\Entity;
 
 use MovingImage\VideoCollection\Interfaces\CollectionInterface;
@@ -30,8 +31,8 @@ class Collection implements CollectionInterface
      * Collection constructor.
      *
      * @param DataProviderInterface $dataProvider
-     * @param string $name
-     * @param array $options
+     * @param string                $name
+     * @param array                 $options
      */
     public function __construct(DataProviderInterface $dataProvider, $name, array $options)
     {
@@ -76,7 +77,7 @@ class Collection implements CollectionInterface
         if (!array_key_exists($key, $this->options)) {
             throw new \Exception(sprintf('Option \'%s\' does not exist within this collection', $key));
         }
-        
+
         $this->options[$key] = $value;
     }
 
@@ -85,9 +86,29 @@ class Collection implements CollectionInterface
      */
     public function generator()
     {
-        foreach ($this->dataProvider->getData($this->getOptions()) as $item) {
+        foreach ($this->dataProvider->getAll($this->getOptions()) as $item) {
             yield $item;
         }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getOne()
+    {
+        if (!array_key_exists('id', $this->options)) {
+            throw new \Exception('Cannot call \'getOne()\' if option \'id\' is not set.');
+        }
+
+        return $this->dataProvider->getOne($this->getOptions());
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAll()
+    {
+        return $this->dataProvider->getAll($this->getOptions());
     }
 
     /**
