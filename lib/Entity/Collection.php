@@ -100,6 +100,10 @@ class Collection implements CollectionInterface
             throw new \Exception('Cannot call \'getOne()\' if option \'id\' is not set.');
         }
 
+        if (!array_key_exists('embed_code_id', $this->options)) {
+            throw new \Exception('Cannot call \'getOne()\' if option \'embed_code_id\' is not set.');
+        }
+
         return $this->dataProvider->getOne($this->getOptions());
     }
 
