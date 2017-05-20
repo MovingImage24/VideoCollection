@@ -21,7 +21,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "movingimage/data-provider": "dev-master"
+        "movingimage/data-provider": "^1.5.0"
     },
     "autoload": {
         "psr-4": {
