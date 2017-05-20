@@ -21,7 +21,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "movingimage/data-provider": "dev-PS-651",
+        "movingimage/data-provider": "dev-master",
         "movingimage/video-manager-meta": "^1.2"
     },
     "autoload": {
