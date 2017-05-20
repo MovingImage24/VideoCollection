@@ -2,6 +2,8 @@
 
 namespace MovingImage\VideoCollection\Interfaces;
 
+use MovingImage\DataProvider\Wrapper\Video;
+
 /**
  * Interface CollectionInterface.
  *
@@ -20,7 +22,7 @@ interface CollectionInterface
      * Set the value for an override attribute option.
      *
      * @param string $key
-     * @param mixed $value
+     * @param mixed  $value
      */
     public function setOption($key, $value);
 
@@ -35,6 +37,7 @@ interface CollectionInterface
      * Retrieve the value of a single option.
      *
      * @param string $key
+     *
      * @return mixed
      */
     public function getOption($key);
@@ -45,6 +48,18 @@ interface CollectionInterface
      * @return \Generator
      */
     public function generator();
+
+    /**
+     * Load the entire collection at once, instead of gradually on-iteration.
+     *
+     * @return mixed
+     */
+    public function getAll();
+
+    /**
+     * @return Video
+     */
+    public function getOne();
 
     /**
      * Get the videos count based on all options provided.
