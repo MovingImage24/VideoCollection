@@ -74,10 +74,6 @@ class Collection implements CollectionInterface
      */
     public function setOption($key, $value)
     {
-        if (!array_key_exists($key, $this->options)) {
-            throw new \Exception(sprintf('Option \'%s\' does not exist within this collection', $key));
-        }
-
         $this->options[$key] = $value;
     }
 
