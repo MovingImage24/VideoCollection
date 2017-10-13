@@ -12,8 +12,8 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "movingimage/data-provider": "^3.0.0",
-        "movingimage/video-manager-meta": "^1.3"
+        "movingimage/data-provider": "dev-master",
+        "movingimage/video-manager-meta": "dev-master"
     },
     "autoload": {
         "psr-4": {
