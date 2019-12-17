@@ -1,15 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MovingImage\VideoCollection\Entity;
 
+use Generator;
+use MovingImage\DataProvider\Wrapper\Video;
 use MovingImage\VideoCollection\Interfaces\CollectionInterface;
 use MovingImage\DataProvider\Interfaces\DataProviderInterface;
 
-/**
- * Class Collection.
- *
- * @author Ruben Knol <ruben.knol@movingimage.com>
- */
 class Collection implements CollectionInterface
 {
     /**
@@ -27,14 +26,7 @@ class Collection implements CollectionInterface
      */
     private $options;
 
-    /**
-     * Collection constructor.
-     *
-     * @param DataProviderInterface $dataProvider
-     * @param string                $name
-     * @param array                 $options
-     */
-    public function __construct(DataProviderInterface $dataProvider, $name, array $options)
+    public function __construct(DataProviderInterface $dataProvider, string $name, array $options)
     {
         $this->dataProvider = $dataProvider;
         $this->name = $name;
@@ -44,7 +36,7 @@ class Collection implements CollectionInterface
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -52,7 +44,7 @@ class Collection implements CollectionInterface
     /**
      * {@inheritdoc}
      */
-    public function getOptions()
+    public function getOptions(): array
     {
         return $this->options;
     }
@@ -72,7 +64,7 @@ class Collection implements CollectionInterface
     /**
      * {@inheritdoc}
      */
-    public function setOption($key, $value)
+    public function setOption(string $key, $value): void
     {
         $this->options[$key] = $value;
     }
@@ -80,7 +72,7 @@ class Collection implements CollectionInterface
     /**
      * {@inheritdoc}
      */
-    public function generator()
+    public function generator(): Generator
     {
         foreach ($this->dataProvider->getAll($this->getOptions()) as $item) {
             yield $item;
@@ -90,7 +82,7 @@ class Collection implements CollectionInterface
     /**
      * {@inheritdoc}
      */
-    public function getOne()
+    public function getOne(): Video
     {
         if (!array_key_exists('player_id', $this->options)) {
             throw new \Exception('Cannot call \'getOne()\' if option \'player_id\' is not set.');
@@ -110,7 +102,7 @@ class Collection implements CollectionInterface
     /**
      * {@inheritdoc}
      */
-    public function getCount()
+    public function getCount(): int
     {
         return $this->dataProvider->getCount($this->getOptions());
     }
