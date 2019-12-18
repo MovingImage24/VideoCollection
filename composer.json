@@ -2,18 +2,18 @@
     "name": "movingimage/video-collection",
     "description": "Library to facilitate building video collections from video manager APIs through means of configuration",
     "type": "library",
-    "license": "Proprietary",
+    "license": "proprietary",
     "authors": [
         {
-            "name": "Ruben Knol",
-            "email": "ruben.knol@movingimage.com"
+            "name": "Movingimage",
+            "email": "developer@movingimage.com"
         }
     ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "movingimage/data-provider": "dev-master",
-        "movingimage/video-manager-meta": "dev-master"
+        "php": "^7.2",
+        "movingimage/data-provider": "^4.0"
     },
     "autoload": {
         "psr-4": {

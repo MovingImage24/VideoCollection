@@ -2,69 +2,47 @@
 
 namespace MovingImage\VideoCollection\Interfaces;
 
+use Generator;
 use MovingImage\DataProvider\Wrapper\Video;
 
-/**
- * Interface CollectionInterface.
- *
- * @author Ruben Knol <ruben.knol@movingimage.com>
- */
 interface CollectionInterface
 {
     /**
      * Get the collection's identifier.
-     *
-     * @return string
      */
-    public function getName();
+    public function getName(): string;
 
     /**
      * Set the value for an override attribute option.
-     *
-     * @param string $key
-     * @param mixed  $value
      */
-    public function setOption($key, $value);
+    public function setOption(string $key, $value): void;
 
     /**
      * Retrieve all defined options.
-     *
-     * @return array
      */
-    public function getOptions();
+    public function getOptions(): array;
 
     /**
      * Retrieve the value of a single option.
      *
-     * @param string $key
-     *
      * @return mixed
      */
-    public function getOption($key);
+    public function getOption(string $key);
 
     /**
      * The efficient iterator that holds the actual collection of videos.
-     *
-     * @return \Generator
      */
-    public function generator();
+    public function generator(): Generator;
 
     /**
      * Load the entire collection at once, instead of gradually on-iteration.
-     *
-     * @return mixed
      */
     public function getAll();
 
-    /**
-     * @return Video
-     */
-    public function getOne();
+    public function getOne(): Video;
 
     /**
      * Get the videos count based on all options provided.
-     *
-     * @return int
      */
-    public function getCount();
+    public function getCount(): int;
 }
