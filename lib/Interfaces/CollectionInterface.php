@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MovingImage\VideoCollection\Interfaces;
 
 use Generator;
@@ -15,7 +17,7 @@ interface CollectionInterface
     /**
      * Set the value for an override attribute option.
      */
-    public function setOption(string $key, $value): void;
+    public function setOption(string $key, mixed $value): void;
 
     /**
      * Retrieve all defined options.
@@ -24,10 +26,8 @@ interface CollectionInterface
 
     /**
      * Retrieve the value of a single option.
-     *
-     * @return mixed
      */
-    public function getOption(string $key);
+    public function getOption(string $key): mixed;
 
     /**
      * The efficient iterator that holds the actual collection of videos.
@@ -37,7 +37,7 @@ interface CollectionInterface
     /**
      * Load the entire collection at once, instead of gradually on-iteration.
      */
-    public function getAll();
+    public function getAll(): array;
 
     public function getOne(): Video;
 
